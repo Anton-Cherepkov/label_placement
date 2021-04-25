@@ -15,12 +15,6 @@ from label_placement.utils.parser import parse_labels_file
     help='Path to file describing labels'
 )
 @click.option(
-    '--output_folder',
-    type=click.Path(),
-    default='.',
-    help='Folder for saving output images'
-)
-@click.option(
     '--xlim',
     type=float,
     default=500,
@@ -32,7 +26,7 @@ from label_placement.utils.parser import parse_labels_file
     default=500,
     help='Canvas y-axis boundary'
 )
-def find_placement_and_draw(input_labels_file, output_folder, xlim, ylim):
+def find_placement_and_draw(input_labels_file, xlim, ylim):
     # Read labels
     labels = parse_labels_file(input_labels_file)
 
