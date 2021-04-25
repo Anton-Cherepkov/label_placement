@@ -1,3 +1,5 @@
+from typing import List
+
 from ..label import Label, BoundingBox
 from ..position import Position
 
@@ -35,3 +37,20 @@ def has_intersection(bbox1: BoundingBox, bbox2: BoundingBox) -> bool:
     y1 = max(bbox1.y1, bbox2.y1)
     y2 = min(bbox1.y2, bbox2.y2)
     return x1 < x2 and y1 < y2
+
+
+def bbox_in_boundaries(bbox: BoundingBox, xlim: float, ylim: float):
+    in_boundaries = True
+    in_boundaries &= bbox.x1 >= 0
+    in_boundaries &= bbox.y1 >= 0
+    in_boundaries &= bbox.x2 <= xlim
+    in_boundaries &= bbox.y2 <= ylim
+    return in_boundaries
+
+
+def filter_labels_out_of_boundaries(labels: List[Label], xlim: float, ylim: float) -> List[Label]:
+    labels = filter(
+        lambda label: bbox_in_boundaries(label_to_bbox(label), xlim, ylim),
+        labels
+    )
+    return list(labels)
