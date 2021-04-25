@@ -1,0 +1,16 @@
+-
+    x: 250
+    y: 250
+    height: 100
+    width: 100
+    positions:
+      - BOTTOM_MIDDLE
+      - TOP_MIDDLE
+-
+    x: 200
+    y: 200
+    height: 10
+    width: 10
+    positions:
+      - BOTTOM_MIDDLE
+      - TOP_MIDDLE

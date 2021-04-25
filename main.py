@@ -1,21 +1,11 @@
-from label_placement.label import Label
-from label_placement.position import Position
-from label_placement.utils.general import label_to_bbox, has_intersection
+from label_placement.utils.general import label_to_bbox
 from label_placement.utils.plots import create_empty_figure, plot_one_box, plot_one_point
 from label_placement.label_placer import find_placement
+from label_placement.utils.parser import parse_labels_file
 
 
 if __name__ == "__main__":
-    labels = [
-        [
-            Label(250, 250, 100, 100, Position.BOTTOM_MIDDLE),
-            Label(250, 250, 100, 100, Position.TOP_MIDDLE)
-        ],
-        [
-            Label(200, 200, 10, 10, Position.BOTTOM_MIDDLE),
-            Label(200, 200, 10, 10, Position.TOP_MIDDLE),
-        ],
-    ]
+    labels = parse_labels_file('example.yaml')
 
     chosen_labels = find_placement(labels)
     

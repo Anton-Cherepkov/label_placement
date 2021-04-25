@@ -29,4 +29,4 @@ def plot_one_box(ax, bbox: BoundingBox):
 
 
 def plot_one_point(ax, x: float, y: float):
-    ax.scatter([x], [y], lw=2, color='r')
+    ax.scatter([x], [y], lw=1, color='r')
