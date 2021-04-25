@@ -46,9 +46,11 @@ def find_placement(possible_labels: List[List[Label]]):
         return None
     
     # Choose final labels
-    labels_solution = [
-        labels[int(sat_solution[f"x{ix}"])]
-        for ix, labels in enumerate(possible_labels)
-    ]
-
+    labels_solution = []
+    for ix, labels in enumerate(possible_labels):
+        try:
+            labels_solution.append(labels[int(sat_solution[f"x{ix}"])])
+        except KeyError:
+            labels_solution.append(labels[0])
+    
     return labels_solution
