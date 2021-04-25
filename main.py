@@ -54,6 +54,7 @@ def find_placement_and_draw(input_labels_file, xlim, ylim):
         plot_one_box(ax, label_to_bbox(label))
         plot_one_point(ax, label.x, label.y)
     fig.savefig(output_name)
+    print(f'Saved to {output_name}')
 
 
 if __name__ == "__main__":
